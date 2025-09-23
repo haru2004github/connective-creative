@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connective Creative - Premium Digital Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'gradient': 'gradient 8s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                    },
+                    backgroundSize: {
+                        '300%': '300% 300%',
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    
+    <style>
+        .animated-bg {
+            background: linear-gradient(-45deg, #ffffff, #e8e8e8);;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .dark .animated-bg {
+            background: linear-gradient(-45deg, #050a12, #121d2b, #222d3e, #334155);;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(186, 186, 186, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .dark .hover-lift:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .particle-1 {
+            width: 4px;
+            height: 4px;
+            background: #3b82f6;
+            animation: float 8s ease-in-out infinite;
+            top: 20%;
+            left: 10%;
+        }
+        
+        .particle-2 {
+            width: 6px;
+            height: 6px;
+            background: #06b6d4;
+            animation: float 10s ease-in-out infinite reverse;
+            top: 60%;
+            right: 15%;
+        }
+        
+        .particle-3 {
+            width: 3px;
+            height: 3px;
+            background: #8b5cf6;
+            animation: float 12s ease-in-out infinite;
+            bottom: 30%;
+            left: 20%;
+        }
+    </style>
+</head>
+
+<body class="animated-bg min-h-screen text-gray-800 dark:text-gray-200 antialiased overflow-x-hidden flex flex-col justify-between">
+    <!-- Floating Particles -->
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    
+    <!-- Header -->
+
+     <header class=" glass-effect transition-all duration-300">
+       <div class="mx-auto max-w-7xl ">
+         <div class="mx-auto px-4 sm:px-4 lg:px-0">
+            <div class="flex justify-between items-center py-2 lg:py-4">
+                <!-- Logo -->
+                <a href="#" class="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center space-x-4">
+                    <div class="w-24 h-24 flex justify-center items-center rounded-full shadow-lg overflow-hidden">
+                    <img class="w-full" src="./img/logo.jpg" alt="">
+                    </div>
+                     <!-- <h1 style="font-family: calibri;">
+                        <span class="text-slate-800">
+                            Connective
+                        </span>
+                        <span class="text-green-800">
+                            Creative
+                        </span>
+                     </h1> -->
+                </a>
+                
+                
+                
+                <!-- Theme Switcher & Mobile Menu -->
+                 <!-- Navigation - Hidden on mobile, visible on tablet+ -->
+                <div class="flex items-center space-x-5">
+                    <nav class="hidden text-lg md:flex space-x-6 lg:space-x-8 text-blue-500 dark:text-blue-300  font-medium">
+                    <a href="./index.html#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">Home</a>
+                     <a href="./index.html#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">About</a>
+                    <a href="./services.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">Services</a>
+                    <a href="./contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Switcher -->
+                    <div class="relative">
+                        <button id="theme-toggle" class="p-2 rounded-lg glass-effect hover:scale-110 transition-all duration-300">
+                            <svg id="sun-icon" class="w-5 h-5 text-yellow-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                            </svg>
+                            <svg id="moon-icon" class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg glass-effect hover:scale-110 transition-all duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass-effect border-t border-white/20">
+            <div class="container mx-auto px-4 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="./index.html#home" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">Home</a>
+                    <a href="./index.html#about" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">About</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">Services</a>
+                    <a href="./contact.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">Contact</a>
+                </nav>
+            </div>
+        </div>
+       </div>
+    </header>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="section-fade-in">
+                <div class="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 hover-lift">
+                    <div class="text-center mb-8 lg:mb-12">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 lg:mb-12 text-gray-900 dark:text-white font-serif">
+                            Contact
+                        </h2>
+                    </div>
+                    
+                    <!-- Contact Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8 lg:mb-12">
+                        <!-- Email Card -->
+                        <div class="glass-effect p-6 lg:p-8 rounded-xl sm:rounded-2xl hover-lift group">
+                            <a target="_blank" href="mailto:8818yannaing@gmail.com" class="flex items-center space-x-4 mb-4">
+                                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
+                                </div>
+                            </a>
+                            <a target="_blank" href="mailto:8818yannaing@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 break-all">
+                                8818yannaing@gmail.com
+                            </a>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="glass-effect p-6 lg:p-8 rounded-xl sm:rounded-2xl hover-lift group">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a target="_blank" href="tel:09958950565" class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </a>
+                                <div>
+                                    <h3 class="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-1">Phone</h3>
+                                </div>
+                            </div>
+                            <a target="_blank" href="tel:09958950565" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300">
+                                09958950565
+                            </a>
+                        </div>
+
+                        <!-- Telegram Card -->
+                        <div class="glass-effect p-6 lg:p-8 rounded-xl sm:rounded-2xl hover-lift group sm:col-span-2 lg:col-span-1">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a target="_blank" href="https://t.me/@sirencalls19" class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                    </svg>
+                                </a>
+                                <div>
+                                    <h3 class="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-1">Telegram</h3>
+                                </div>
+                            </div>
+                            <a target="_blank" href="https://t.me/@sirencalls19" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                                @sirencalls19
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="text-center glass-effect p-6 lg:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white mb-2">Business Hours</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg">Mon to Sun ( 9:00 am to 9:00 pm )</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 lg:py-12 px-4 sm:px-6 lg:px-8 border-t border-white/20">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
+                &copy; 2025 Connective Creative. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections with fade-in animation
+        document.querySelectorAll('.section-fade-in').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            } else {
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+    </script>
+</body>
+</html>

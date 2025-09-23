@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connective Creative - Premium Digital Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'gradient': 'gradient 8s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                    },
+                    backgroundSize: {
+                        '300%': '300% 300%',
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    
+    <style>
+        .animated-bg {
+            background: linear-gradient(-45deg, #ffffff, #e8e8e8);;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .dark .animated-bg {
+            background: linear-gradient(-45deg, #050a12, #121d2b, #222d3e, #334155);;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(186, 186, 186, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .dark .hover-lift:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .particle-1 {
+            width: 4px;
+            height: 4px;
+            background: #3b82f6;
+            animation: float 8s ease-in-out infinite;
+            top: 20%;
+            left: 10%;
+        }
+        
+        .particle-2 {
+            width: 6px;
+            height: 6px;
+            background: #06b6d4;
+            animation: float 10s ease-in-out infinite reverse;
+            top: 60%;
+            right: 15%;
+        }
+        
+        .particle-3 {
+            width: 3px;
+            height: 3px;
+            background: #8b5cf6;
+            animation: float 12s ease-in-out infinite;
+            bottom: 30%;
+            left: 20%;
+        }
+    </style>
+</head>
+
+<body class="animated-bg min-h-screen text-gray-800 dark:text-gray-200 antialiased overflow-x-hidden">
+    <!-- Floating Particles -->
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    
+    <!-- Header -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect transition-all duration-300">
+       <div class="mx-auto max-w-7xl ">
+         <div class="mx-auto px-4 sm:px-4 lg:px-0">
+            <div class="flex justify-between items-center py-2 lg:py-4">
+                <!-- Logo -->
+                <a href="#" class="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center space-x-4">
+                    <div class="w-24 h-24 flex justify-center items-center rounded-full shadow-lg overflow-hidden">
+                    <img class="w-full" src="./img/logo.jpg" alt="">
+                    </div>
+                     <!-- <h1 style="font-family: calibri;">
+                        <span class="text-slate-800">
+                            Connective
+                        </span>
+                        <span class="text-green-800">
+                            Creative
+                        </span>
+                     </h1> -->
+                </a>
+                
+                
+                
+                <!-- Theme Switcher & Mobile Menu -->
+                 <!-- Navigation - Hidden on mobile, visible on tablet+ -->
+                <div class="flex items-center space-x-5">
+                    <nav class="hidden text-lg md:flex space-x-6 lg:space-x-8 text-blue-500 dark:text-blue-300  font-medium">
+                    <a href="./index.html#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">Home</a>
+                     <a href="./index.html#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">About</a>
+                    <a href="./services.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">Services</a>
+                    <a href="./contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Switcher -->
+                    <div class="relative">
+                        <button id="theme-toggle" class="p-2 rounded-lg glass-effect hover:scale-110 transition-all duration-300">
+                            <svg id="sun-icon" class="w-5 h-5 text-yellow-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                            </svg>
+                            <svg id="moon-icon" class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg glass-effect hover:scale-110 transition-all duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass-effect border-t border-white/20">
+            <div class="container mx-auto px-4 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="./index.html#home" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">Home</a>
+                    <a href="./index.html#about" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">About</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">Services</a>
+                    <a href="./contact.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-2">Contact</a>
+                </nav>
+            </div>
+        </div>
+       </div>
+    </header>
+
+
+        <!-- Services Section -->
+    <section id="services" class="py-16 sm:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 mt-20">
+        <div class="container mx-auto max-w-7xl">
+            <div class="section-fade-in">
+                <div class="text-center mb-12 lg:mb-16">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 text-gray-900 dark:text-white font-serif">
+                        Our Services
+                    </h2>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 font-medium max-w-3xl mx-auto">
+                        Premium digital services with competitive pricing and guaranteed satisfaction
+                    </p>
+                </div>
+
+                <!-- AI Services -->
+                <div class="mb-12 lg:mb-16">
+                    <div class="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 hover-lift">
+                        <div class="flex items-center mb-6 lg:mb-8">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white font-serif">AI Services</h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                            <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">ChatGPT Plus</h4>
+                                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p>1 month - <span class="font-semibold text-blue-600 dark:text-blue-400">45,000 MMK</span></p>
+                                    <p>3 months - <span class="font-semibold text-blue-600 dark:text-blue-400">95,000 MMK</span></p>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Gemini Pro</h4>
+                                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p>1 year - <span class="font-semibold text-blue-600 dark:text-blue-400">35,000 MMK</span></p>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Perplexity Pro</h4>
+                                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p>1 month - <span class="font-semibold text-blue-600 dark:text-blue-400">7,000 MMK</span></p>
+                                    <p>3 months - <span class="font-semibold text-blue-600 dark:text-blue-400">14,000 MMK</span></p>
+                                    <p>6 months - <span class="font-semibold text-blue-600 dark:text-blue-400">21,000 MMK</span></p>
+                                    <p>12 months - <span class="font-semibold text-blue-600 dark:text-blue-400">35,000 MMK</span></p>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Grammarly Pro</h4>
+                                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p class="text-xs text-gray-500 dark:text-gray-500 mb-2">(Private)</p>
+                                    <p>3 months - <span class="font-semibold text-blue-600 dark:text-blue-400">30,000 MMK</span></p>
+                                    <p>12 months - <span class="font-semibold text-blue-600 dark:text-blue-400">80,000 MMK</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entertainment Services -->
+                <div class="mb-12 lg:mb-16">
+                    <div class="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 hover-lift">
+                        <div class="flex items-center mb-6 lg:mb-8">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.01M15 10h1.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white font-serif">Entertainment</h3>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                            <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Spotify</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-medium text-gray-800 dark:text-gray-200 mb-2">Individual Plan</h5>
+                                        <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                                            <p>3 months - <span class="font-semibold text-green-600 dark:text-green-400">23,000 MMK</span></p>
+                                            <p>6 months - <span class="font-semibold text-green-600 dark:text-green-400">36,000 MMK</span></p>
+                                            <p>12 months - <span class="font-semibold text-green-600 dark:text-green-400">65,000 MMK</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-gray-800 dark:text-gray-200 mb-2">Family Invite (US)</h5>
+                                        <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                                            <p>1 month - <span class="font-semibold text-green-600 dark:text-green-400">6,000 MMK</span></p>
+                                            <p>3 months - <span class="font-semibold text-green-600 dark:text-green-400">13,000 MMK</span></p>
+                                            <p>6 months - <span class="font-semibold text-green-600 dark:text-green-400">22,000 MMK</span></p>
+                                            <p>12 months - <span class="font-semibold text-green-600 dark:text-green-400">40,000 MMK</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Netflix</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-500 mb-3">(No VPN - Own Profile)</p>
+                                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p>1 month - <span class="font-semibold text-red-600 dark:text-red-400">15,000 MMK</span> <span class="text-xs">(Ph, PC, Android box)</span></p>
+                                    <p>1 month - <span class="font-semibold text-red-600 dark:text-red-400">25,000 MMK</span> <span class="text-xs">(Smart TV)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Editing Services -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
+                    <!-- Education -->
+                    <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5c1.746 0 3.332.477 4.5 1.253v13C13.168 18.477 14.754 18 16.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white font-serif">Education</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="glass-effect p-4 rounded-xl">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Coursera</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">1 year - <span class="font-semibold text-blue-600 dark:text-blue-400">95,000 MMK</span></p>
+                            </div>
+                            <div class="glass-effect p-4 rounded-xl">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">edX</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">1 year - <span class="font-semibold text-blue-600 dark:text-blue-400">50,000 MMK</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Editing -->
+                    <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white font-serif">Editing</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="glass-effect p-4 rounded-xl">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Canva Pro</h4>
+                                <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                                    <p>1 month - <span class="font-semibold text-orange-600 dark:text-orange-400">5,000 MMK</span></p>
+                                    <p>1 year - <span class="font-semibold text-orange-600 dark:text-orange-400">15,000 MMK</span></p>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-4 rounded-xl">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">CapCut Pro</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-500 mb-2">(Private)</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">1 month - <span class="font-semibold text-orange-600 dark:text-orange-400">25,000 MMK</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VPN Services -->
+                <div class="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 hover-lift">
+                    <div class="flex items-center mb-6 lg:mb-8">
+                        <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white font-serif">VPN Services</h3>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                        <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Outline / V2Box / Hiddify</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">1 month - <span class="font-semibold text-cyan-600 dark:text-cyan-400">5,000 MMK</span> <span class="text-xs">(1 device)</span></p>
+                        </div>
+                        <div class="glass-effect p-4 lg:p-6 rounded-xl hover-lift">
+                            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Express VPN</h4>
+                            <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                <p>1 month - <span class="font-semibold text-cyan-600 dark:text-cyan-400">5,000 MMK</span></p>
+                                <p>3 months - <span class="font-semibold text-cyan-600 dark:text-cyan-400">10,000 MMK</span></p>
+                                <p>6 months - <span class="font-semibold text-cyan-600 dark:text-cyan-400">13,000 MMK</span></p>
+                                <p>12 months - <span class="font-semibold text-cyan-600 dark:text-cyan-400">20,000 MMK</span></p>
+                                <p>24 months - <span class="font-semibold text-cyan-600 dark:text-cyan-400">30,000 MMK</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mt-12 lg:mt-16">
+                    <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-12">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Get Started?</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+                            Contact us today to discuss your needs and get the best digital services at competitive prices.
+                        </p>
+                        <a href="#contact" class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            Contact Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="py-8 lg:py-12ှှ px-4 sm:px-6 lg:px-8 border-t border-white/20">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
+                &copy; 2025 Connective Creative. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections with fade-in animation
+        document.querySelectorAll('.section-fade-in').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            } else {
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+    </script>
+</body>
+</html>
